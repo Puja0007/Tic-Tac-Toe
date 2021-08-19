@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.board{
+    padding: 150px;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3,100px);
+    grid-template-rows: repeat(3,100px);
+}
+.cell{
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+}
+.cell.x::before,.cell.x::after{
+    content: '';
+    height: 100px;
+    width: 10px;
+    background-color: black;
+    
+}
+.cell.x::after{
+    transform: rotate(45deg);
+}
+.cell.x::before{
+    transform: rotate(-45deg);
+}
+.cell.o::before,.cell.o::after{
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+    
+}
+.cell.o::before{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+.cell.o::after{
+    height: 70px;
+    width: 70px;
+    background-color: white;
+}
+.cell.wave.x::before,.cell.wave.x::after{
+  display: none;
+}
+.cell.wave:hover.x::before,.cell.wave:hover.x::after{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.384);
+    cursor: pointer;
+}
+.cell.wave.o::before,.cell.wave.o::after{
+    display: none;
+  }
+  .cell.wave:hover.o::before{
+      display: block;
+      background-color: rgba(0, 0, 0, 0.384);
+      cursor: pointer;
+  }
+  .cell.wave:hover.o::after{
+    display: block;
+    background-color: white;
+    cursor: pointer;
+  }
