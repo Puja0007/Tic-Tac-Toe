@@ -2,8 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: rgb(42, 42, 78)
 }
-
+.restart-btn{
+    margin-left: 145px;
+}
+.Heading{
+    margin-left: 550px;
+    margin-top: 20px;
+    color:whitesmoke;
+}
 .board{
     padding: 150px;
     margin: auto;
@@ -13,6 +21,7 @@
     grid-template-columns: repeat(3,100px);
     grid-template-rows: repeat(3,100px);
 }
+
 .cell{
     height: 100px;
     width: 100px;

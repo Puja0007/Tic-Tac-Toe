@@ -4,7 +4,6 @@ var x = false;
 var o = true;
 
 function over(item) {
-    
     var element = document.getElementById(item.id);
     element.className = "";
     if (this.o == true) {
@@ -21,8 +20,8 @@ function over(item) {
     }
     element.onmouseover = null;
     element.onclick = null;
-    this.checkDraw(); 
     this.checkWin();
+    checkDraw()
 }
 function hover(item) {
     var element = document.getElementById(item.id);
@@ -39,53 +38,101 @@ function hover(item) {
     }
 }
 function checkWin() {
-    var cell0 = document.getElementById("x0").className;
     var cell1 = document.getElementById("x1").className;
     var cell2 = document.getElementById("x2").className;
-    var cell3 = document.getElementById("x3").className;
+    var cell0 = document.getElementById("x0").className;
     var cell4 = document.getElementById("x4").className;
     var cell5 = document.getElementById("x5").className;
+    var cell3 = document.getElementById("x3").className;
     var cell6 = document.getElementById("x6").className;
     var cell7 = document.getElementById("x7").className;
     var cell8 = document.getElementById("x8").className;
     if (cell0 == cell1 && cell1 == cell2 && (cell2 == "cell x" || cell2 == "cell o")) {
-        alert("win");
+        if(cell2 == "cell x"){
+            alert("X is winner");
+        }
+        else if(call2 == "cell o"){
+            alert("O is winner");
+        }
+        
     }
     else if (cell3 == cell4 && cell4 == cell5 && (cell5 == "cell x" || cell5 == "cell o")) {
-        alert("win");
+        if(cell5 == "cell x"){
+            alert("X is winner");
+        }
+        else if(cell5 == "cell o"){
+            alert("O is winner");
+        }
     }
     else if (cell6 == cell7 && cell7 == cell8 && (cell8 == "cell x" || cell8 == "cell o")) {
-        alert("win");
+        if(cell8 == "cell x"){
+            alert("X is winner");
+        }
+        else if(cell8 == "cell o"){
+            alert("O is winner");
+        }
     }
     else if (cell0 == cell3 && cell3 == cell6 && (cell6 == "cell x" || cell6 == "cell o")) {
-        alert("win");
+        if(cell6 == "cell x"){
+            alert("X is winner");
+        }
+        else if(cell6 == "cell o"){
+            alert("O is winner");
+        }
     }
     else if (cell1 == cell4 && cell4 == cell7 && (cell7 == "cell x" || cell7 == "cell o")) {
-        alert("win");
+        if(cell7 == "cell x"){
+            alert("X is winner");
+        }
+        else if(cell7 == "cell o"){
+            alert("O is winner");
+        }
     }
     else if (cell2 == cell5 && cell5 == cell8 && (cell8 == "cell x" || cell8 == "cell o")) {
-        alert("win");
+        if(cell8 == "cell x"){
+            alert("X is winner");
+        }
+        else if(cell8 == "cell o"){
+            alert("O is winner");
+        }
     }
     else if (cell0 == cell4 && cell4 == cell8 && (cell8 == "cell x" || cell8 == "cell o")) {
-        alert("win");  
+        if(cell8 == "cell x"){
+            alert("X is winner");
+        }
+        else if(cell8 == "cell o"){
+            alert("O is winner");
+        }
     }
     else if (cell2 == cell4 && cell4 == cell6 && (cell6 == "cell x" || cell6 == "cell o")) {
-        alert("win");
+        if(cell6 == "cell x"){
+            alert("X is winner");
+        }
+        else if(cell6 == "cell o"){
+            alert("O is winner");
+        }
     }
 }
 function checkDraw() {
+    let drawCountx =0
+    let drawCounto = 0
     var ele = document.querySelector('.board');
     for (let i = 0; i < ele.childNodes.length; i++) {
         if (ele.childNodes[i].className == "cell x") {
-            this.drawCountx++;
+            drawCountx++;
         }
         if (ele.childNodes[i].className == "cell o") {
-            this.drawCounto++;
+            drawCounto++;
         }
     }
-    if (this.drawCountx == this.drawCounto && (this.drawCounto > 0 || this.drawCountx > 0)) {
+    
+    if ((drawCountx ==4 && drawCounto>drawCountx) || (drawCountx==5 && drawCounto<drawCountx)) {
         alert("draw");
     }
+}
+
+function restart(){
+    window.location.reload();
 }
 
 
